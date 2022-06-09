@@ -11,7 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.bonifaciotech.p1_ap2_danilo_20190266.ui.viewmodel.viewmodel
+import com.bonifaciotech.p1_ap2_danilo_20190266.ui.prestamo.viewmodel
 
 @Composable
 fun Registro(
@@ -23,6 +23,18 @@ fun Registro(
     Scaffold(
         topBar = {
             TopAppBar(title = { Text(text = "Registro de Prestamos") })
+        },
+        floatingActionButton = {
+               FloatingActionButton(
+                   onClick = {
+                       viewModel.guardar()
+                   },
+                   backgroundColor = MaterialTheme.colors.primary
+
+
+               ) {
+                   Icon(imageVector = Icons.Default.Save, contentDescription = null)
+               }
         },
 
         scaffoldState = scaffoldState
@@ -67,32 +79,7 @@ fun Registro(
                 modifier = Modifier.fillMaxWidth()
             )
 
-            Row() {
-                OutlinedButton(
-                    onClick = {
 
-                }) {
-                    Icon(imageVector = Icons.Default.Clear, contentDescription = null)
-                    Text(text = "Nuevo")
-                }
-
-                OutlinedButton(
-                    onClick = {
-                        viewModel.guardar()
-                    }) {
-                    Icon(imageVector = Icons.Default.Add, contentDescription = null)
-                    Text(text = "Guardar")
-                }
-
-                OutlinedButton(
-                    onClick = {
-
-                    }) {
-                    Icon(imageVector = Icons.Default.Delete, contentDescription = null)
-                    Text(text = "Eliminar")
-                }
-
-            }
 
 
 

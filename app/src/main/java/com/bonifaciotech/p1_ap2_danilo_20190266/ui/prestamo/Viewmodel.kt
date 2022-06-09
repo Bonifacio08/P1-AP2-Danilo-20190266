@@ -1,4 +1,4 @@
-package com.bonifaciotech.p1_ap2_danilo_20190266.ui.viewmodel
+package com.bonifaciotech.p1_ap2_danilo_20190266.ui.prestamo
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf

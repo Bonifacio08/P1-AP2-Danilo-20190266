@@ -17,11 +17,14 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.bonifaciotech.p1_ap2_danilo_20190266.model.Prestamo
 import com.bonifaciotech.p1_ap2_danilo_20190266.ui.consulta.Consulta
 import com.bonifaciotech.p1_ap2_danilo_20190266.ui.registro.Registro
 import com.bonifaciotech.p1_ap2_danilo_20190266.ui.theme.P1AP2Danilo20190266Theme
 import com.bonifaciotech.p1_ap2_danilo_20190266.util.Screen
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,6 +44,7 @@ fun MyApp() {
     val navHostController = rememberNavController()
 
     NavHost(navController = navHostController, startDestination = Screen.Consulta.route){
+
         composable(route = Screen.Consulta.route){
             Consulta(IrRegistro = {navHostController.navigate(Screen.Registro.route)})
         }
@@ -51,7 +55,15 @@ fun MyApp() {
 }
 
 
+@Composable
+fun RowPrestamo(prestamo: Prestamo) {
+    Column(modifier = Modifier.padding(8.dp)) {
+        Text("Deudor: ${prestamo.deudor}")
+        Text("Concepto: ${prestamo.concepto}")
+        Text("Monto: ${prestamo.monto}")
+    }
 
+}
 
 
 
